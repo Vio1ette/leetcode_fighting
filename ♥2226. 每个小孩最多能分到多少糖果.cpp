@@ -2,7 +2,9 @@
 using namespace std;
 
 
-//时间复杂度：O(log(max_val/k))
+//时间复杂度：O(nlogM)，其中 n 为数组 candies 的长度
+//M=max(candies[i])，即二分查找的上界。我们总共需要 O(logM) 次二分查找
+//每次需要 O(n) 的时间计算每人的糖果数量是否符合要求
 class Solution {
 public:
     int maximumCandies(vector<int> candies, long long k) {
