@@ -8,7 +8,7 @@ using namespace std;
 * 城市之间有连通性
 * 从0出发，返回
 * 1.能到达所有城市，最后回到0，字典序越小越好
-* 2.能到达所有城市，但回到0，字典序越小越好
+* 2.能到达所有城市，但不能回到0，字典序越小越好
 * 3.无法到达所有城市，返回-1
 */
 
@@ -108,9 +108,11 @@ int main()
 	path.push_back(0);
 	visited[0] = 1;
 	dfs(mp, path, visited, remain);
-
+	
+	//字典序
 	sort(ret.begin(), ret.end());
 
+	//遍历完所有城市，且最后回到0了
 	for (int i = 0; i < ret.size(); i++) {
 		if (ret[i].size() == v + 1 && ret[i].back() == 0) {
 			for (int x : ret[i]) {
@@ -120,6 +122,7 @@ int main()
 		}
 	}
 
+	//遍历完所有城市，但无法回到0
 	for (int i = 0; i < ret.size(); i++) {
 		if (ret[i].size() == v) {
 			for (int x : ret[i]) {
@@ -129,6 +132,7 @@ int main()
 		}
 	}
 
+	//无法遍历完所有城市
 	cout << -1 << endl;
 
 

@@ -21,7 +21,8 @@ private:
 class Singleton {
 
 public:
-	//返回参数为静态引用，而不是指针，用户调用这个函数是想获得实例，而不是指向实例的指针
+	//返回参数为静态引用，而不是指针
+	//因为单例实例的生存期是由单例类自己管理的，而不是用户代码，如果返回指针的话，用户代码就有可能会delete掉这个指针
 	static Singleton& getInstance() {  
 		if (instance == nullptr) {
 			instance = new Singleton();
