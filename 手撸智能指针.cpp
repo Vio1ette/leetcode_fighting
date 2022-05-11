@@ -28,7 +28,7 @@ public:
 		c_->add();
 	}
 
-	Shared_ptr& operator==(const Shared_ptr& sp) {
+	Shared_ptr& operator=(const Shared_ptr& sp) {
 		clean();
 		c_ = sp->c_;
 		c_->add();
@@ -41,7 +41,7 @@ public:
 		sp->ptr_ = nullptr;
 	}
 
-	Shared_ptr& operator==(Shared_ptr&& sp) {
+	Shared_ptr& operator=(Shared_ptr&& sp) {
 		clean();
 		c_ = sp->c_;
 		if (ptr_ != sp->ptr_)ptr_ = sp->ptr_;
